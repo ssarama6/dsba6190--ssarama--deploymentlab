@@ -47,6 +47,7 @@ resource "azurerm_subnet" "subnet" {
   service_endpoints    = ["Microsoft.Sql", "Microsoft.Storage"]
 }
 
+
 // SQL Server
 
 resource "azurerm_mssql_server" "sql" {
