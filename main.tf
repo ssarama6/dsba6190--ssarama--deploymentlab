@@ -51,7 +51,7 @@ resource "azurerm_subnet" "subnet" {
 // SQL Server
 
 resource "azurerm_mssql_server" "sql" {
-  name                         = "sql-${var.class_name}-${var.student_name}-${var.environment}-${random_integer.deployment_id_suffix.result}"
+  name                         = "sql-${var.class_name}-${var.student_name}-${random_integer.deployment_id_suffix.result}"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
   version                      = "12.0"
@@ -68,7 +68,7 @@ resource "azurerm_mssql_virtual_network_rule" "vnetrule" {
 // SQL Database
 
 resource "azurerm_mssql_database" "db" {
-  name        = "db-${var.class_name}-${var.student_name}-${var.environment}-${random_integer.deployment_id_suffix.result}"
+  name        = "db-${var.class_name}-${var.student_name}-${random_integer.deployment_id_suffix.result}"
   server_id   = azurerm_mssql_server.sql.id
   collation   = "SQL_Latin1_General_CP1_CI_AS"
   max_size_gb = 1
